@@ -220,8 +220,8 @@ Tests are configured via `data/test_data.json`:
 - Debug information for troubleshooting
 
 ### Screenshots
-- Automatic screenshot capture on test steps
-- Saved to `reports/screenshots/` directory
+- Automatic screenshot capture and add to Allure reports on test steps
+- Saved to `reports/` directory
 - Useful for debugging and documentation
 
 ## 🤝 Contributing
