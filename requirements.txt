@@ -1,0 +1,6 @@
+playwright
+pytest
+pytest-asyncio
+allure-pytest
+python-dotenv
+tenacity
