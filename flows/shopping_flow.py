@@ -1,4 +1,11 @@
-﻿from pages.home_page import HomePage
+﻿"""End-to-end shopping flow orchestration for the test framework.
+
+This module defines the ShoppingFlow class that coordinates page objects and
+implements the workflow for searching, selecting, adding products to the cart,
+and verifying cart totals.
+"""
+
+from pages.home_page import HomePage
 from pages.cart_page import CartPage
 from pages.overlay_page import OverlayPage
 from pages.product_page import ProductPage

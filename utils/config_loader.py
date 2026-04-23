@@ -1,3 +1,8 @@
+"""Utility for loading structured test configuration data.
+
+This module reads JSON test data files used by fixtures and tests.
+"""
+
 import json
 
 def load_test_data(file_path):

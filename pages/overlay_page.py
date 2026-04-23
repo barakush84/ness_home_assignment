@@ -1,3 +1,9 @@
+"""Page object for overlay dialogs on the shopping site.
+
+This module provides the OverlayPage class used to interact with the
+confirmation overlay displayed after adding items to the cart.
+"""
+
 from pages.base_page import BasePage
 
 

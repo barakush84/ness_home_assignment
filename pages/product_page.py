@@ -1,4 +1,10 @@
-﻿import random
+﻿"""Page object for product details and add-to-cart behavior.
+
+This module defines the ProductPage class, including pricing, variant
+selection, and cart addition logic for a product details page.
+"""
+
+import random
 from tenacity import retry, stop_after_attempt, wait_random
 
 from pages.base_page import BasePage
@@ -8,16 +14,30 @@ from utils.price_utils import parse_price
 RETRY_LIMIT = 3
 
 class ProductPage(BasePage):
+    """Page object for the product details page.
+
+    Handles price retrieval, variant selection, and add-to-cart interactions.
+    """
     # Primary selector - target size selector buttons more specifically
     SIZE_SELECTOR = "[data-type='מידת_נעליים']"
     ADD_TO_CART_BUTTON = "button[data-faro-user-action-name='click-add-to-cart']"
     PRICE_SELECTOR = "div[class*='current-']"
 
     def __init__(self, page):
+        """Initialize the ProductPage with a Playwright page instance.
+
+        Args:
+            page: Playwright Page object.
+        """
         super().__init__(page)
 
     @retry(stop=stop_after_attempt(RETRY_LIMIT), wait=wait_random(1, 2))
     def get_price(self):
+        """Retrieve the current product price from the page.
+
+        Returns:
+            float: Parsed price of the product.
+        """
         # Use shorter timeout (5 seconds instead of default 30) to fail fast
         price_text = self.page.locator(self.PRICE_SELECTOR).first.inner_text(timeout=5000)
         price = parse_price(price_text)
@@ -26,6 +46,11 @@ class ProductPage(BasePage):
         return price
 
     def get_available_size_options(self):
+        """Return all available size variant locators for the current product.
+
+        Returns:
+            list: Playwright locators for available size variants.
+        """
         try:
             sizes = self.page.locator(self.SIZE_SELECTOR).all()
             valid_sizes = []
@@ -52,10 +77,23 @@ class ProductPage(BasePage):
             return []
 
     def is_size_selected(self, size):
+        """Check whether a given size option is already selected.
+
+        Args:
+            size: Playwright locator for a size option.
+
+        Returns:
+            bool: True if the size option is selected, False otherwise.
+        """
         class_attr = size.get_attribute("class") or ""
         return "activeTag" in class_attr
 
     def select_random_variant(self):
+        """Select a random unselected size variant if available.
+
+        Returns:
+            bool: True when a variant was selected or selection was skipped gracefully, False on error.
+        """
         try:
             sizes = self.get_available_size_options()
 
@@ -93,9 +131,10 @@ class ProductPage(BasePage):
 
     @retry(stop=stop_after_attempt(RETRY_LIMIT), wait=wait_random(1, 2))
     def add_to_cart(self):
-        """
-        Click add to cart button with retry logic
-        Wait for button to be enabled first
+        """Click the add-to-cart button with retry logic.
+
+        Returns:
+            bool: True if the item was added successfully, False otherwise.
         """
         add_btn = self.page.locator(self.ADD_TO_CART_BUTTON)
         if add_btn.count() > 0:

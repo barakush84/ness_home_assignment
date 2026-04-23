@@ -1,3 +1,9 @@
+"""Page object for the home page of the shopping site.
+
+This module contains the HomePage class used to perform search actions
+from the site homepage.
+"""
+
 from pages.base_page import BasePage
 
 

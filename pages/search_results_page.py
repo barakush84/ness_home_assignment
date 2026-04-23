@@ -1,4 +1,10 @@
-﻿from pages.base_page import BasePage
+﻿"""Page object for search results and product listing interactions.
+
+This module defines the SearchResultsPage class used to handle search result
+locators, pagination, and product URL extraction.
+"""
+
+from pages.base_page import BasePage
 from utils.price_utils import parse_price
 
 

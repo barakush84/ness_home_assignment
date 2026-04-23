@@ -1,3 +1,9 @@
+"""Logger configuration utilities for the test framework.
+
+This module configures a shared logger instance used across page objects,
+flows, and tests.
+"""
+
 import logging
 from pathlib import Path
 from datetime import datetime

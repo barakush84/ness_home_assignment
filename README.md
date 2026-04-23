@@ -196,7 +196,7 @@ Tests are configured via `data/test_data.json`:
 - **Guest User Only**: Tests run as anonymous users without authentication
 - **Single Browser**: Currently configured for Chromium only
 - **Desktop Focused**: Optimized for desktop viewport, may not work on mobile
-- **Site Dependencies**: Relies on ksp.co.il site structure and availability
+- **Site Dependencies**: Relies on ksp.co.il site structure and availability including availability of product selected by other customers
 - **Price Volatility**: Live site prices may change, affecting test stability
 
 ### Potential Improvements

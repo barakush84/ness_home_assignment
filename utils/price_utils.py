@@ -1,3 +1,8 @@
+"""Utility functions for price parsing and normalization.
+
+This module provides helpers to convert price text from the UI into numeric values.
+"""
+
 import re
 
 def parse_price(text):

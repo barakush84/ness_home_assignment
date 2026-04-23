@@ -1,3 +1,9 @@
+"""Base page object utilities for the test framework.
+
+This module defines the BasePage class shared by all page object modules.
+It also provides common navigation and screenshot functionality.
+"""
+
 import allure
 from allure_commons.types import AttachmentType
 

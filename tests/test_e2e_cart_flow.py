@@ -1,4 +1,10 @@
-﻿import allure
+﻿"""End-to-end cart flow test module.
+
+This module implements the E2E test that searches for products,
+adds them to the cart, and verifies cart totals and item counts.
+"""
+
+import allure
 from flows.shopping_flow import ShoppingFlow
 
 from utils.logger import get_logger
@@ -7,12 +13,14 @@ logger = get_logger()
 
 @allure.step("Initialize shopping flow")
 def init_flow(page):
+    """Create the ShoppingFlow instance for use in the test."""
     logger.info("Initializing shopping flow")
     return ShoppingFlow(page)
 
 
 @allure.step("Search for items by name under specified price")
 def search_items(flow, data):
+    """Search for products using the provided test data."""
     logger.info(f"Searching for items with term '{data['search_term']}' under price {data['max_price']}")
     return flow.search_items_by_name_under_price(
         data["search_term"],
@@ -23,12 +31,14 @@ def search_items(flow, data):
 
 @allure.step("Add items to cart from URLs")
 def add_items_to_cart(flow, urls):
+    """Add the found product URLs to the cart and return the calculated total."""
     logger.info(f"Adding {len(urls)} items to cart")
     return flow.add_items_to_cart(urls)
 
 
 @allure.step("Assert cart total does not exceed budget")
 def assert_cart_total_not_exceeds(flow, data, num_of_items):
+    """Verify that the cart total matches the expected budget limits."""
     logger.info(f"Asserting cart total does not exceed budget: {data['max_price']} * {num_of_items} = {data['max_price'] * num_of_items}")
     flow.assert_cart_total_not_exceeds(
         data["max_price"],
@@ -37,6 +47,7 @@ def assert_cart_total_not_exceeds(flow, data, num_of_items):
 
 @allure.step("Assert cart total equals calculated total")
 def assert_cart_total_equal_to_total(flow, data, num_of_items, total_price):
+    """Validate that the cart total equals the expected calculated price."""
     logger.info(f"Asserting cart total equals calculated total: {total_price}")
     flow.assert_cart_total_equal_to_total(
         data["max_price"],
@@ -46,12 +57,14 @@ def assert_cart_total_equal_to_total(flow, data, num_of_items, total_price):
 
 @allure.step("Assert number of items in cart matches expected count")
 def assert_number_of_items_in_cart(flow, num_of_items):
+    """Check that the cart contains the expected number of items."""
     logger.info(f"Asserting number of items in cart: {num_of_items}")
     flow.assert_cart_items_count(num_of_items)
 
 
 @allure.step("Take cart screenshot")
 def take_cart_screenshot(flow):
+    """Capture a final screenshot of the cart page for reporting."""
     logger.info("Taking screenshot of cart")
     return flow.cart.save_screenshot(filename="final_cart")
 
@@ -59,6 +72,11 @@ def take_cart_screenshot(flow):
 @allure.title("E2E Cart Flow Test")
 @allure.description("Test the end-to-end cart flow including searching items under price, adding to cart with random variants, and verifying cart totals.")
 def test_e2e_cart_flow(page, test_data):
+    """Execute the full end-to-end cart flow test.
+
+    The test searches for products, adds them to the shopping cart, and
+    validates cart totals and item count against expected values.
+    """
     logger.info("TEST STARTED")
 
     flow = init_flow(page)
