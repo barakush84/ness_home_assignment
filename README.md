@@ -1,92 +1,241 @@
-# Ness Home Assignment
+# Ness Home Assignment - E2E Shopping Cart Test Framework
 
-## Description
+## 📋 Overview
 
-This project is an end-to-end testing framework for a shopping website's cart functionality. It automates the process of searching for items under a specified price, adding them to the cart, and verifying the cart totals and item counts. The framework uses Playwright for browser automation, pytest for test execution, and Allure for generating detailed test reports.
+This project is a comprehensive end-to-end (E2E) testing framework designed to validate the shopping cart functionality of an e-commerce website (ksp.co.il - Israeli shoe retailer). The framework automates the complete shopping workflow: searching for products under a specified price threshold, adding them to cart with random size variants, and verifying cart totals and item counts.
 
-## Features
+Built using modern testing practices with the Page Object Model (POM) pattern, the framework ensures maintainable, reliable, and scalable test automation.
 
-- Automated e2e tests for shopping cart flow
-- Search for items by name under a maximum price
-- Add selected items to cart
-- Verify cart total does not exceed budget
-- Verify cart total matches calculated price
-- Verify number of items in cart
-- Detailed Allure reports with step-by-step logging
+## 🎯 Key Features
 
-## Installation
+- **Complete E2E Shopping Flow**: Automated search → selection → cart addition → verification
+- **Price-Based Filtering**: Finds products under specified maximum price per item
+- **Random Variant Selection**: Automatically selects available sizes for each product
+- **Comprehensive Assertions**: Validates cart totals, item counts, and budget constraints
+- **Detailed Reporting**: Allure integration with step-by-step test execution logs
+- **Screenshot Capture**: Automatic screenshots for debugging and reporting
+- **Robust Error Handling**: Retry mechanisms for flaky operations
+- **Configurable Test Data**: JSON-based configuration for easy test parameterization
 
-1. Clone the repository:
-   ```
+## 🏗️ Architecture & Design Patterns
+
+### Page Object Model (POM)
+The framework implements the Page Object Model pattern for better maintainability:
+- **BasePage**: Common functionality (navigation, screenshots)
+- **HomePage**: Search functionality
+- **SearchResultsPage**: Product extraction with pagination support
+- **ProductPage**: Individual product interactions with retry logic
+- **CartPage**: Cart verification and assertions
+- **OverlayPage**: Post-add-to-cart overlay handling
+
+### Business Logic Layer
+- **ShoppingFlow**: Orchestrates the entire shopping workflow
+- Centralized business logic separate from UI interactions
+
+### Test Layer
+- **Pytest Fixtures**: Browser and page lifecycle management
+- **Allure Integration**: Detailed step-by-step reporting
+- **Helper Functions**: Decorated test steps for better traceability
+
+## 📁 Project Structure
+
+```
+ness_home_assignment/
+├── tests/
+│   └── test_e2e_cart_flow.py      # Main E2E test suite
+├── flows/
+│   └── shopping_flow.py          # Business logic orchestration
+├── pages/                        # Page Object Models
+│   ├── base_page.py              # Base page with common functionality
+│   ├── home_page.py              # Home page search
+│   ├── search_results_page.py    # Search results with pagination
+│   ├── product_page.py           # Product details and cart addition
+│   ├── cart_page.py              # Cart verification
+│   └── overlay_page.py           # Post-add overlay handling
+├── utils/                        # Utility modules
+│   ├── config_loader.py          # JSON configuration loading
+│   ├── logger.py                 # Logging configuration
+│   └── price_utils.py            # Price parsing utilities
+├── data/
+│   └── test_data.json            # Test configuration data
+├── reports/                      # Allure report outputs
+├── logs/                        # Application logs
+├── conftest.py                   # Pytest fixtures and configuration
+├── pytest.ini                    # Pytest configuration
+├── requirements.txt              # Python dependencies
+├── README.md                     # This documentation
+└── ReadMeAIBugs.md              # Known issues and fixes documentation
+```
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+- Python 3.8+
+- Git
+
+### Installation Steps
+
+1. **Clone the repository**:
+   ```bash
    git clone <repository-url>
    cd ness_home_assignment
    ```
 
-2. Install Python dependencies:
+2. **Create virtual environment**:
+   ```bash
+   python -m venv .venv
+   # On Windows:
+   .venv\Scripts\activate
+   # On macOS/Linux:
+   source .venv/bin/activate
    ```
+
+3. **Install Python dependencies**:
+   ```bash
    pip install -r requirements.txt
    ```
 
-3. Install Playwright browsers:
-   ```
+4. **Install Playwright browsers**:
+   ```bash
    playwright install
    ```
 
-## Usage
+## 🧪 Running Tests
 
-### Running Tests
+### Basic Test Execution
+```bash
+# Run all tests
+pytest
 
-- Run all tests:
-  ```
-  pytest
-  ```
+# Run with verbose output
+pytest -v
 
-- Run tests with Allure reporting:
-  ```
-  pytest --alluredir=reports
-  ```
-
-### Generating Allure Report
-
-After running tests with the `--alluredir` option, generate and serve the Allure report:
+# Run specific test file
+pytest tests/test_e2e_cart_flow.py
 ```
+
+### Allure Reporting
+```bash
+# Run tests with Allure reporting
+pytest --alluredir=reports
+
+# Generate and serve Allure report
 allure serve reports
 ```
 
-This will open a web browser with the detailed test report.
+### Test Configuration
+Tests are configured via `data/test_data.json`:
+```json
+{
+  "search_term": "shoes",
+  "max_price": 400,
+  "limit": 5
+}
+```
 
-## Project Structure
+## 🔧 Configuration Details
 
-- `tests/`: Contains test files, including the main e2e cart flow test
-- `flows/`: Business logic flows, such as the shopping flow
-- `pages/`: Page object models for different website pages (home, search results, product, cart, overlay)
-- `utils/`: Utility functions for configuration loading, logging, and price parsing
-- `data/`: Test data files, such as `test_data.json`
-- `reports/`: Directory for Allure report output include screenshots (`reports/screenshots`)
-- `logs/`: Directory for log files generated during test execution
+### Test Data Configuration (`data/test_data.json`)
+| Parameter | Type | Description | Example |
+|-----------|------|-------------|---------|
+| `search_term` | string | Product search keyword | "shoes" |
+| `max_price` | number | Maximum price per item (ILS) | 400 |
+| `limit` | number | Maximum items to add to cart | 5 |
 
-## Configuration
+### Pytest Configuration (`pytest.ini`)
+- Enables Allure reporting (`--alluredir=reports`)
+- Configures async test execution
+- Sets up CLI logging
 
-- Test data is loaded from `data/test_data.json`, which includes:
-  - `search_term`: The term to search for (e.g., "shoes")
-  - `max_price`: Maximum price per item (e.g., 350)
-  - `limit`: Maximum number of items to add to cart (e.g., 5)
+### Logging Configuration (`utils/logger.py`)
+- File-based logging with timestamps
+- Configurable log levels
+- Automatic log directory creation
 
-- Pytest configuration is in `pytest.ini`, which sets up Allure reporting and other options.
+## 🛠️ Technologies & Dependencies
 
-## Technologies Used
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| **Playwright** | Latest | Browser automation and E2E testing |
+| **pytest** | Latest | Test framework and execution |
+| **pytest-asyncio** | Latest | Async test support |
+| **allure-pytest** | Latest | Test reporting and visualization |
+| **tenacity** | Latest | Retry mechanisms for flaky operations |
 
-- **Playwright**: For browser automation and e2e testing
-- **pytest**: Test framework
-- **Allure**: Test reporting
-- **Python**: Programming language
+## 📊 Test Flow & Assertions
 
-## Limitations & Assumptions
+### Complete Shopping Workflow
 
-- **Authentication**: Tests are performed as a guest user; no login or user account is required or stubbed.
-- **Currency**: All price values are assumed to be in Israeli Shekel (ILS).
-- **Test Data**: Product availability and prices may change on the live site, which can affect test stability.
-- **Environment**: Tests are designed for desktop browsers and may not be compatible with mobile layouts.
-- **Third-party Dependencies**: The framework relies on Playwright, pytest, and Allure; ensure all are installed and compatible with your Python version.
-- **Browser Support**: Playwright browsers must be installed prior to running tests (`playwright install`).
-- **Timeouts**: Some actions may be slow due to network or site performance; timeouts are handled, but excessive delays may cause test failures.
+1. **Search Phase**:
+   - Navigate to home page
+   - Enter search term
+   - Extract products under price limit
+   - Handle pagination for complete results
+
+2. **Selection Phase**:
+   - Visit individual product pages
+   - Extract pricing information
+   - Select random available sizes
+   - Add products to cart
+
+3. **Verification Phase**:
+   - Navigate to cart page
+   - Assert total price ≤ budget (max_price × item_count)
+   - Assert total price matches calculated sum
+   - Assert item count matches expected quantity
+
+### Key Assertions
+- **Budget Compliance**: Cart total doesn't exceed `max_price × limit`
+- **Price Accuracy**: Cart total matches sum of individual item prices
+- **Item Count**: Cart contains expected number of items
+- **Product Availability**: Successfully finds and adds specified number of items
+
+## 🐛 Known Issues & Limitations
+
+### Current Limitations
+- **Guest User Only**: Tests run as anonymous users without authentication
+- **Single Browser**: Currently configured for Chromium only
+- **Desktop Focused**: Optimized for desktop viewport, may not work on mobile
+- **Site Dependencies**: Relies on ksp.co.il site structure and availability
+- **Price Volatility**: Live site prices may change, affecting test stability
+
+### Potential Improvements
+- Add type hints throughout codebase
+- Implement parameterized tests for different scenarios
+- Add console logging alongside file logging
+- Extract hardcoded timeouts to configuration
+- Add more comprehensive error handling
+
+## 📈 Reporting & Debugging
+
+### Allure Reports
+- Step-by-step test execution visualization
+- Screenshots captured at key points
+- Detailed failure information with stack traces
+- Historical test trends and analytics
+
+### Logging
+- Comprehensive file-based logging
+- Timestamped log files in `logs/` directory
+- Debug information for troubleshooting
+
+### Screenshots
+- Automatic screenshot capture on test steps
+- Saved to `reports/screenshots/` directory
+- Useful for debugging and documentation
+
+## 🤝 Contributing
+
+1. Follow the existing Page Object Model structure
+2. Add appropriate logging for new functionality
+3. Include Allure steps for test actions
+4. Update documentation for significant changes
+5. Ensure all tests pass before submitting
+
+## 📄 License
+
+This project is part of the Ness Home Assignment and is intended for educational and demonstration purposes.
+
+---
+
+**Note**: This framework is specifically designed for the ksp.co.il e-commerce platform and may require updates if the site structure changes.

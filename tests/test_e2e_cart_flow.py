@@ -35,9 +35,9 @@ def assert_cart_total_not_exceeds(flow, data, num_of_items):
         num_of_items
     )
 
-@allure.step("Assert cart total does not exceed budget")
+@allure.step("Assert cart total equals calculated total")
 def assert_cart_total_equal_to_total(flow, data, num_of_items, total_price):
-    logger.info(f"Asserting cart total does not exceed budget: {data['max_price']} * {num_of_items} = {data['max_price'] * num_of_items}")
+    logger.info(f"Asserting cart total equals calculated total: {total_price}")
     flow.assert_cart_total_equal_to_total(
         data["max_price"],
         num_of_items,

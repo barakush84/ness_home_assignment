@@ -1,0 +1,76 @@
+2026-04-23 16:47:04,000 - INFO     - test_e2e_cart_flow.py    :62  - TEST STARTED
+2026-04-23 16:47:04,000 - INFO     - test_e2e_cart_flow.py    :10  - Initializing shopping flow
+2026-04-23 16:47:04,000 - INFO     - test_e2e_cart_flow.py    :16  - Searching for items with term 'shoes' under price 400
+2026-04-23 16:47:04,000 - INFO     - shopping_flow.py         :41  - Starting search for 'shoes' with max_price=400, limit=5
+2026-04-23 16:47:04,000 - INFO     - base_page.py             :31  - Navigating to https://www.ksp.co.il
+2026-04-23 16:47:07,807 - DEBUG    - search_results_page.py   :67  - Found item under price: 314.0 <= 400
+2026-04-23 16:47:07,824 - DEBUG    - search_results_page.py   :67  - Found item under price: 399.0 <= 400
+2026-04-23 16:47:07,827 - DEBUG    - search_results_page.py   :67  - Found item under price: 399.0 <= 400
+2026-04-23 16:47:07,830 - DEBUG    - search_results_page.py   :67  - Found item under price: 399.0 <= 400
+2026-04-23 16:47:07,834 - DEBUG    - search_results_page.py   :67  - Found item under price: 319.0 <= 400
+2026-04-23 16:47:07,837 - DEBUG    - search_results_page.py   :67  - Found item under price: 319.0 <= 400
+2026-04-23 16:47:07,837 - INFO     - search_results_page.py   :72  - Found 6 items under max price 400
+2026-04-23 16:47:07,840 - INFO     - search_results_page.py   :122 - Extracted URL 1/5: https://ksp.co.il/web/item/272076
+2026-04-23 16:47:07,843 - INFO     - search_results_page.py   :122 - Extracted URL 2/5: https://ksp.co.il/web/item/437641
+2026-04-23 16:47:07,847 - INFO     - search_results_page.py   :122 - Extracted URL 3/5: https://ksp.co.il/web/item/437653
+2026-04-23 16:47:07,850 - INFO     - search_results_page.py   :122 - Extracted URL 4/5: https://ksp.co.il/web/item/437657
+2026-04-23 16:47:07,853 - INFO     - search_results_page.py   :122 - Extracted URL 5/5: https://ksp.co.il/web/item/437675
+2026-04-23 16:47:07,853 - INFO     - search_results_page.py   :125 - Reached limit of 5 URLs
+2026-04-23 16:47:07,853 - INFO     - search_results_page.py   :136 - Total URLs extracted: 5
+2026-04-23 16:47:07,853 - INFO     - shopping_flow.py         :50  - Search completed. Found and extracted 5 product URLs
+2026-04-23 16:47:07,853 - INFO     - test_e2e_cart_flow.py    :67  - Found 5 products to add to cart: ['https://ksp.co.il/web/item/272076', 'https://ksp.co.il/web/item/437641', 'https://ksp.co.il/web/item/437653', 'https://ksp.co.il/web/item/437657', 'https://ksp.co.il/web/item/437675']
+2026-04-23 16:47:07,854 - INFO     - test_e2e_cart_flow.py    :26  - Adding 5 items to cart
+2026-04-23 16:47:07,854 - INFO     - shopping_flow.py         :62  - Starting to add 5 items to cart
+2026-04-23 16:47:07,854 - INFO     - shopping_flow.py         :68  - Processing item 1/5: https://ksp.co.il/web/item/272076
+2026-04-23 16:47:08,701 - DEBUG    - product_page.py          :47  - Found 2 valid size options
+2026-04-23 16:47:09,079 - INFO     - product_page.py          :81  - Selected new size: EU 50
+2026-04-23 16:47:09,763 - INFO     - product_page.py          :112 - Added item to cart
+2026-04-23 16:47:10,278 - INFO     - shopping_flow.py         :81  - Successfully added item 1 to cart
+2026-04-23 16:47:10,282 - INFO     - shopping_flow.py         :86  - Item price: 314.0, Running total: 314.0
+2026-04-23 16:47:10,353 - INFO     - base_page.py             :45  - Screenshot captures and save in Allure for: ProductPage
+2026-04-23 16:47:10,715 - INFO     - shopping_flow.py         :68  - Processing item 2/5: https://ksp.co.il/web/item/437641
+2026-04-23 16:47:11,394 - DEBUG    - product_page.py          :47  - Found 6 valid size options
+2026-04-23 16:47:12,586 - INFO     - product_page.py          :81  - Selected new size: EU 42
+2026-04-23 16:47:13,243 - INFO     - product_page.py          :112 - Added item to cart
+2026-04-23 16:47:13,745 - INFO     - shopping_flow.py         :81  - Successfully added item 2 to cart
+2026-04-23 16:47:13,748 - INFO     - shopping_flow.py         :86  - Item price: 399.0, Running total: 713.0
+2026-04-23 16:47:13,823 - INFO     - base_page.py             :45  - Screenshot captures and save in Allure for: ProductPage
+2026-04-23 16:47:14,197 - INFO     - shopping_flow.py         :68  - Processing item 3/5: https://ksp.co.il/web/item/437653
+2026-04-23 16:47:14,909 - DEBUG    - product_page.py          :47  - Found 5 valid size options
+2026-04-23 16:47:15,290 - INFO     - product_page.py          :81  - Selected new size: EU 40
+2026-04-23 16:47:15,962 - INFO     - product_page.py          :112 - Added item to cart
+2026-04-23 16:47:16,473 - INFO     - shopping_flow.py         :81  - Successfully added item 3 to cart
+2026-04-23 16:47:16,476 - INFO     - shopping_flow.py         :86  - Item price: 399.0, Running total: 1112.0
+2026-04-23 16:47:16,537 - INFO     - base_page.py             :45  - Screenshot captures and save in Allure for: ProductPage
+2026-04-23 16:47:16,892 - INFO     - shopping_flow.py         :68  - Processing item 4/5: https://ksp.co.il/web/item/437657
+2026-04-23 16:47:17,593 - DEBUG    - product_page.py          :47  - Found 5 valid size options
+2026-04-23 16:47:18,037 - INFO     - product_page.py          :81  - Selected new size: EU 41
+2026-04-23 16:47:18,690 - INFO     - product_page.py          :112 - Added item to cart
+2026-04-23 16:47:19,209 - INFO     - shopping_flow.py         :81  - Successfully added item 4 to cart
+2026-04-23 16:47:19,211 - INFO     - shopping_flow.py         :86  - Item price: 399.0, Running total: 1511.0
+2026-04-23 16:47:19,293 - INFO     - base_page.py             :45  - Screenshot captures and save in Allure for: ProductPage
+2026-04-23 16:47:19,658 - INFO     - shopping_flow.py         :68  - Processing item 5/5: https://ksp.co.il/web/item/437675
+2026-04-23 16:47:20,346 - DEBUG    - product_page.py          :47  - Found 5 valid size options
+2026-04-23 16:47:21,549 - INFO     - product_page.py          :81  - Selected new size: EU 36
+2026-04-23 16:47:22,206 - INFO     - product_page.py          :112 - Added item to cart
+2026-04-23 16:47:22,721 - INFO     - shopping_flow.py         :81  - Successfully added item 5 to cart
+2026-04-23 16:47:22,725 - INFO     - shopping_flow.py         :86  - Item price: 319.0, Running total: 1830.0
+2026-04-23 16:47:22,785 - INFO     - base_page.py             :45  - Screenshot captures and save in Allure for: ProductPage
+2026-04-23 16:47:23,157 - INFO     - shopping_flow.py         :100 - Finished adding items to cart. Total price: 1830.0
+2026-04-23 16:47:23,158 - INFO     - test_e2e_cart_flow.py    :32  - Asserting cart total does not exceed budget: 400 * 5 = 2000
+2026-04-23 16:47:23,158 - INFO     - shopping_flow.py         :110 - Verifying cart total: budget_per_item=400, items_count=5
+2026-04-23 16:47:23,158 - INFO     - base_page.py             :31  - Navigating to https://ksp.co.il/cart/
+2026-04-23 16:47:26,488 - INFO     - shopping_flow.py         :116 - Cart total: 1830.0, Expected max: 2000
+2026-04-23 16:47:26,488 - INFO     - shopping_flow.py         :119 - Cart total is within budget
+2026-04-23 16:47:26,488 - INFO     - test_e2e_cart_flow.py    :49  - Asserting number of items in cart: 5
+2026-04-23 16:47:26,488 - INFO     - shopping_flow.py         :146 - Verifying cart items count: 5
+2026-04-23 16:47:26,494 - INFO     - shopping_flow.py         :151 - Items in cart: 5, Expected: 5
+2026-04-23 16:47:26,494 - INFO     - shopping_flow.py         :154 - Cart contains expected 5 items
+2026-04-23 16:47:26,494 - INFO     - test_e2e_cart_flow.py    :40  - Asserting cart total equals calculated total: 1830.0
+2026-04-23 16:47:26,494 - INFO     - shopping_flow.py         :129 - Verifying cart total: budget_per_item=400, items_count=5, expected_total=1830.0
+2026-04-23 16:47:26,497 - INFO     - shopping_flow.py         :135 - Cart total: 1830.0, Expected total: 1830.0, Expected max: 2000
+2026-04-23 16:47:26,497 - INFO     - shopping_flow.py         :138 - Cart total matches expected total
+2026-04-23 16:47:26,497 - INFO     - test_e2e_cart_flow.py    :78  - Taking final cart screenshot regardless of test outcome
+2026-04-23 16:47:26,497 - INFO     - test_e2e_cart_flow.py    :55  - Taking screenshot of cart
+2026-04-23 16:47:26,561 - INFO     - base_page.py             :45  - Screenshot captures and save in Allure for: CartPage
+2026-04-23 16:47:26,561 - INFO     - test_e2e_cart_flow.py    :81  - TEST COMPLETED SUCCESSFULLY

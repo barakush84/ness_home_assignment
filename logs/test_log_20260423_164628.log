@@ -1,0 +1,34 @@
+2026-04-23 16:46:28,933 - INFO     - test_e2e_cart_flow.py    :62  - TEST STARTED
+2026-04-23 16:46:28,933 - INFO     - test_e2e_cart_flow.py    :10  - Initializing shopping flow
+2026-04-23 16:46:28,933 - INFO     - test_e2e_cart_flow.py    :16  - Searching for items with term 'shoes' under price 400
+2026-04-23 16:46:28,934 - INFO     - shopping_flow.py         :41  - Starting search for 'shoes' with max_price=400, limit=5
+2026-04-23 16:46:28,934 - INFO     - base_page.py             :31  - Navigating to https://www.ksp.co.il
+2026-04-23 16:46:36,359 - DEBUG    - search_results_page.py   :67  - Found item under price: 314.0 <= 400
+2026-04-23 16:46:36,393 - INFO     - search_results_page.py   :72  - Found 1 items under max price 400
+2026-04-23 16:46:36,396 - INFO     - search_results_page.py   :122 - Extracted URL 1/5: https://ksp.co.il/web/item/272076
+2026-04-23 16:46:36,401 - DEBUG    - search_results_page.py   :152 - Next page button not found
+2026-04-23 16:46:36,401 - INFO     - search_results_page.py   :133 - No more pages available
+2026-04-23 16:46:36,401 - INFO     - search_results_page.py   :136 - Total URLs extracted: 1
+2026-04-23 16:46:36,401 - INFO     - shopping_flow.py         :50  - Search completed. Found and extracted 1 product URLs
+2026-04-23 16:46:36,401 - INFO     - test_e2e_cart_flow.py    :67  - Found 1 products to add to cart: ['https://ksp.co.il/web/item/272076']
+2026-04-23 16:46:36,401 - INFO     - test_e2e_cart_flow.py    :26  - Adding 1 items to cart
+2026-04-23 16:46:36,401 - INFO     - shopping_flow.py         :62  - Starting to add 1 items to cart
+2026-04-23 16:46:36,401 - INFO     - shopping_flow.py         :68  - Processing item 1/1: https://ksp.co.il/web/item/272076
+2026-04-23 16:46:38,564 - DEBUG    - product_page.py          :47  - Found 2 valid size options
+2026-04-23 16:46:38,909 - INFO     - product_page.py          :81  - Selected new size: EU 50
+2026-04-23 16:46:39,575 - INFO     - product_page.py          :112 - Added item to cart
+2026-04-23 16:46:40,086 - INFO     - shopping_flow.py         :81  - Successfully added item 1 to cart
+2026-04-23 16:46:40,089 - INFO     - shopping_flow.py         :86  - Item price: 314.0, Running total: 314.0
+2026-04-23 16:46:40,150 - INFO     - base_page.py             :45  - Screenshot captures and save in Allure for: ProductPage
+2026-04-23 16:46:40,494 - INFO     - shopping_flow.py         :100 - Finished adding items to cart. Total price: 314.0
+2026-04-23 16:46:40,494 - INFO     - test_e2e_cart_flow.py    :32  - Asserting cart total does not exceed budget: 400 * 1 = 400
+2026-04-23 16:46:40,494 - INFO     - shopping_flow.py         :110 - Verifying cart total: budget_per_item=400, items_count=1
+2026-04-23 16:46:40,494 - INFO     - base_page.py             :31  - Navigating to https://ksp.co.il/cart/
+2026-04-23 16:46:43,220 - INFO     - shopping_flow.py         :116 - Cart total: 314.0, Expected max: 400
+2026-04-23 16:46:43,220 - INFO     - shopping_flow.py         :119 - Cart total is within budget
+2026-04-23 16:46:43,220 - INFO     - test_e2e_cart_flow.py    :49  - Asserting number of items in cart: 1
+2026-04-23 16:46:43,220 - INFO     - shopping_flow.py         :146 - Verifying cart items count: 1
+2026-04-23 16:46:43,224 - INFO     - shopping_flow.py         :151 - Items in cart: 0, Expected: 1
+2026-04-23 16:46:43,224 - INFO     - test_e2e_cart_flow.py    :78  - Taking final cart screenshot regardless of test outcome
+2026-04-23 16:46:43,224 - INFO     - test_e2e_cart_flow.py    :55  - Taking screenshot of cart
+2026-04-23 16:46:43,274 - INFO     - base_page.py             :45  - Screenshot captures and save in Allure for: CartPage

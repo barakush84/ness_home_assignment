@@ -10,7 +10,6 @@ class SearchResultsPage(BasePage):
     BASE_URL = "https://ksp.co.il"
     PRODUCT_LINK_SELECTOR = "div[class*='product-']"
     PRICE_SELECTOR = "div[class*='currentPrice']"
-    ADD_TO_CART_SELECTOR = "button[class*='MuiButton-containedSecondary']"
     NEXT_PAGE_BUTTON = "a[aria-label*='next'], button[aria-label*='next'], a:has-text('Next'), button:has-text('Next')"
 
     def __init__(self, page):

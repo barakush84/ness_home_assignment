@@ -1,0 +1,34 @@
+INFO     test_logger:test_e2e_cart_flow.py:62 TEST STARTED
+INFO     test_logger:test_e2e_cart_flow.py:10 Initializing shopping flow
+INFO     test_logger:test_e2e_cart_flow.py:16 Searching for items with term 'shoes' under price 400
+INFO     test_logger:shopping_flow.py:41 Starting search for 'shoes' with max_price=400, limit=5
+INFO     test_logger:base_page.py:31 Navigating to https://www.ksp.co.il
+DEBUG    test_logger:search_results_page.py:67 Found item under price: 314.0 <= 400
+INFO     test_logger:search_results_page.py:72 Found 1 items under max price 400
+INFO     test_logger:search_results_page.py:122 Extracted URL 1/5: https://ksp.co.il/web/item/272076
+DEBUG    test_logger:search_results_page.py:152 Next page button not found
+INFO     test_logger:search_results_page.py:133 No more pages available
+INFO     test_logger:search_results_page.py:136 Total URLs extracted: 1
+INFO     test_logger:shopping_flow.py:50 Search completed. Found and extracted 1 product URLs
+INFO     test_logger:test_e2e_cart_flow.py:67 Found 1 products to add to cart: ['https://ksp.co.il/web/item/272076']
+INFO     test_logger:test_e2e_cart_flow.py:26 Adding 1 items to cart
+INFO     test_logger:shopping_flow.py:62 Starting to add 1 items to cart
+INFO     test_logger:shopping_flow.py:68 Processing item 1/1: https://ksp.co.il/web/item/272076
+DEBUG    test_logger:product_page.py:47 Found 2 valid size options
+INFO     test_logger:product_page.py:81 Selected new size: EU 50
+INFO     test_logger:product_page.py:112 Added item to cart
+INFO     test_logger:shopping_flow.py:81 Successfully added item 1 to cart
+INFO     test_logger:shopping_flow.py:86 Item price: 314.0, Running total: 314.0
+INFO     test_logger:base_page.py:45 Screenshot captures and save in Allure for: ProductPage
+INFO     test_logger:shopping_flow.py:100 Finished adding items to cart. Total price: 314.0
+INFO     test_logger:test_e2e_cart_flow.py:32 Asserting cart total does not exceed budget: 400 * 1 = 400
+INFO     test_logger:shopping_flow.py:110 Verifying cart total: budget_per_item=400, items_count=1
+INFO     test_logger:base_page.py:31 Navigating to https://ksp.co.il/cart/
+INFO     test_logger:shopping_flow.py:116 Cart total: 314.0, Expected max: 400
+INFO     test_logger:shopping_flow.py:119 Cart total is within budget
+INFO     test_logger:test_e2e_cart_flow.py:49 Asserting number of items in cart: 1
+INFO     test_logger:shopping_flow.py:146 Verifying cart items count: 1
+INFO     test_logger:shopping_flow.py:151 Items in cart: 0, Expected: 1
+INFO     test_logger:test_e2e_cart_flow.py:78 Taking final cart screenshot regardless of test outcome
+INFO     test_logger:test_e2e_cart_flow.py:55 Taking screenshot of cart
+INFO     test_logger:base_page.py:45 Screenshot captures and save in Allure for: CartPage

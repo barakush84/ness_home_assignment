@@ -8,7 +8,6 @@ class CartPage(BasePage):
     URL = "https://ksp.co.il/cart/"
     TOTAL_PRICE_LOCATOR = "div[id='totalPriceInFinishOrder']"
     ITEMS_COUNT_LOCATOR = "span[class='text']"
-    CART_CONTAINER_LOCATOR = "div[class*='cart_container']"
 
 
     def __init__(self, page):

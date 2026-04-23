@@ -8,8 +8,6 @@ class OverlayPage(BasePage):
     """
 
     CONTINUE_SHOPPING_BUTTON = "[data-faro-user-action-name='click-continue-shopping']"
-    GO_TO_CART_BUTTON = "[data-faro-user-action-name='click-go-to-cart']"
-    PRICE_SELECTOR = "p[class*='price-']"
 
     def __init__(self, page):
         """Initialize the OverlayPage with a Playwright page instance.
@@ -27,8 +25,3 @@ class OverlayPage(BasePage):
         """Click the continue shopping button on the overlay."""
         self.wait_for_overlay()
         self.page.locator(self.CONTINUE_SHOPPING_BUTTON).click()
-
-    def go_to_cart(self):
-        """Click the goto cart button on the overlay."""
-        self.wait_for_overlay()
-        self.page.locator(self.GO_TO_CART_BUTTON).click()

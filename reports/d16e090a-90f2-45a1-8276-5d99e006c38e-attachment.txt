@@ -3,20 +3,20 @@ INFO     test_logger:test_e2e_cart_flow.py:10 Initializing shopping flow
 INFO     test_logger:test_e2e_cart_flow.py:16 Searching for items with term 'shoes' under price 400
 INFO     test_logger:shopping_flow.py:41 Starting search for 'shoes' with max_price=400, limit=5
 INFO     test_logger:base_page.py:31 Navigating to https://www.ksp.co.il
-DEBUG    test_logger:search_results_page.py:68 Found item under price: 314.0 <= 400
-DEBUG    test_logger:search_results_page.py:68 Found item under price: 399.0 <= 400
-DEBUG    test_logger:search_results_page.py:68 Found item under price: 399.0 <= 400
-DEBUG    test_logger:search_results_page.py:68 Found item under price: 399.0 <= 400
-DEBUG    test_logger:search_results_page.py:68 Found item under price: 319.0 <= 400
-DEBUG    test_logger:search_results_page.py:68 Found item under price: 319.0 <= 400
-INFO     test_logger:search_results_page.py:73 Found 6 items under max price 400
-INFO     test_logger:search_results_page.py:123 Extracted URL 1/5: https://ksp.co.il/web/item/272076
-INFO     test_logger:search_results_page.py:123 Extracted URL 2/5: https://ksp.co.il/web/item/437641
-INFO     test_logger:search_results_page.py:123 Extracted URL 3/5: https://ksp.co.il/web/item/437653
-INFO     test_logger:search_results_page.py:123 Extracted URL 4/5: https://ksp.co.il/web/item/437657
-INFO     test_logger:search_results_page.py:123 Extracted URL 5/5: https://ksp.co.il/web/item/437675
-INFO     test_logger:search_results_page.py:126 Reached limit of 5 URLs
-INFO     test_logger:search_results_page.py:137 Total URLs extracted: 5
+DEBUG    test_logger:search_results_page.py:67 Found item under price: 314.0 <= 400
+DEBUG    test_logger:search_results_page.py:67 Found item under price: 399.0 <= 400
+DEBUG    test_logger:search_results_page.py:67 Found item under price: 399.0 <= 400
+DEBUG    test_logger:search_results_page.py:67 Found item under price: 399.0 <= 400
+DEBUG    test_logger:search_results_page.py:67 Found item under price: 319.0 <= 400
+DEBUG    test_logger:search_results_page.py:67 Found item under price: 319.0 <= 400
+INFO     test_logger:search_results_page.py:72 Found 6 items under max price 400
+INFO     test_logger:search_results_page.py:122 Extracted URL 1/5: https://ksp.co.il/web/item/272076
+INFO     test_logger:search_results_page.py:122 Extracted URL 2/5: https://ksp.co.il/web/item/437641
+INFO     test_logger:search_results_page.py:122 Extracted URL 3/5: https://ksp.co.il/web/item/437653
+INFO     test_logger:search_results_page.py:122 Extracted URL 4/5: https://ksp.co.il/web/item/437657
+INFO     test_logger:search_results_page.py:122 Extracted URL 5/5: https://ksp.co.il/web/item/437675
+INFO     test_logger:search_results_page.py:125 Reached limit of 5 URLs
+INFO     test_logger:search_results_page.py:136 Total URLs extracted: 5
 INFO     test_logger:shopping_flow.py:50 Search completed. Found and extracted 5 product URLs
 INFO     test_logger:test_e2e_cart_flow.py:67 Found 5 products to add to cart: ['https://ksp.co.il/web/item/272076', 'https://ksp.co.il/web/item/437641', 'https://ksp.co.il/web/item/437653', 'https://ksp.co.il/web/item/437657', 'https://ksp.co.il/web/item/437675']
 INFO     test_logger:test_e2e_cart_flow.py:26 Adding 5 items to cart
@@ -30,7 +30,7 @@ INFO     test_logger:shopping_flow.py:86 Item price: 314.0, Running total: 314.0
 INFO     test_logger:base_page.py:45 Screenshot captures and save in Allure for: ProductPage
 INFO     test_logger:shopping_flow.py:68 Processing item 2/5: https://ksp.co.il/web/item/437641
 DEBUG    test_logger:product_page.py:47 Found 6 valid size options
-INFO     test_logger:product_page.py:81 Selected new size: EU 38
+INFO     test_logger:product_page.py:81 Selected new size: EU 42
 INFO     test_logger:product_page.py:112 Added item to cart
 INFO     test_logger:shopping_flow.py:81 Successfully added item 2 to cart
 INFO     test_logger:shopping_flow.py:86 Item price: 399.0, Running total: 713.0
@@ -44,14 +44,14 @@ INFO     test_logger:shopping_flow.py:86 Item price: 399.0, Running total: 1112.
 INFO     test_logger:base_page.py:45 Screenshot captures and save in Allure for: ProductPage
 INFO     test_logger:shopping_flow.py:68 Processing item 4/5: https://ksp.co.il/web/item/437657
 DEBUG    test_logger:product_page.py:47 Found 5 valid size options
-INFO     test_logger:product_page.py:81 Selected new size: EU 39
+INFO     test_logger:product_page.py:81 Selected new size: EU 41
 INFO     test_logger:product_page.py:112 Added item to cart
 INFO     test_logger:shopping_flow.py:81 Successfully added item 4 to cart
 INFO     test_logger:shopping_flow.py:86 Item price: 399.0, Running total: 1511.0
 INFO     test_logger:base_page.py:45 Screenshot captures and save in Allure for: ProductPage
 INFO     test_logger:shopping_flow.py:68 Processing item 5/5: https://ksp.co.il/web/item/437675
 DEBUG    test_logger:product_page.py:47 Found 5 valid size options
-INFO     test_logger:product_page.py:81 Selected new size: EU 33.5
+INFO     test_logger:product_page.py:81 Selected new size: EU 36
 INFO     test_logger:product_page.py:112 Added item to cart
 INFO     test_logger:shopping_flow.py:81 Successfully added item 5 to cart
 INFO     test_logger:shopping_flow.py:86 Item price: 319.0, Running total: 1830.0
@@ -66,7 +66,7 @@ INFO     test_logger:test_e2e_cart_flow.py:49 Asserting number of items in cart:
 INFO     test_logger:shopping_flow.py:146 Verifying cart items count: 5
 INFO     test_logger:shopping_flow.py:151 Items in cart: 5, Expected: 5
 INFO     test_logger:shopping_flow.py:154 Cart contains expected 5 items
-INFO     test_logger:test_e2e_cart_flow.py:40 Asserting cart total does not exceed budget: 400 * 5 = 2000
+INFO     test_logger:test_e2e_cart_flow.py:40 Asserting cart total equals calculated total: 1830.0
 INFO     test_logger:shopping_flow.py:129 Verifying cart total: budget_per_item=400, items_count=5, expected_total=1830.0
 INFO     test_logger:shopping_flow.py:135 Cart total: 1830.0, Expected total: 1830.0, Expected max: 2000
 INFO     test_logger:shopping_flow.py:138 Cart total matches expected total
